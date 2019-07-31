@@ -1,6 +1,13 @@
 # CNC-pen-plotter
 A multi axes (XY) CNC pen plotter machine.
----- Insert images ----
+
+
+<p align="middle">
+  <img src="/images/Drawing_close.gif" alt="Drawing with the CNC machine" height=200>
+
+  <img src="/images/img1.jpg" alt="Complete view of the CNC assembly" height=200>
+</p>
+
 
 ## 1. Introduction
 The following repository holds the code, schematics and hardware needed to build a simple two linear axes plotter controlled with an Arduino and a CNC shield. 
@@ -23,10 +30,11 @@ Install the GRBL into your Arduino. Find [here](https://arduinoboardproject.com/
 ### 2.2. Electronics
 Before proceeding with the electronics, I really recommend checking that all the components work properly and are correctly setup (pay special attention to A4988 modules, as the need to be tuned before being used).
 
-After ensuring that all the components work properly follow next diagram to setup your electronics. 
+After ensuring that all the components work properly follow next diagram to setup your electronics. (Don't forget to shortcircuit the X.STEPS/DIR pins)
 
----- Insert image ----
-
+<p align="middle">
+  <img src="/images/electronic_schematics.jpg" alt="Schematics for electronics assembly" width=500>
+</p>
 
 ### 2.3. Hardware
 The assembly process is quite straightforward:
@@ -36,23 +44,34 @@ The assembly process is quite straightforward:
 3. Assembly the X shafts and the X shaft holders (2 in total).
 4. Assembly the movable left side base.
 
----- Insert image ----
+<p align="middle">
+  <img src="/images/assembly_left_base.png" alt="Assembly of the movable left base" width=400>
+</p>
 
 5. Assembly the movable right side base.
 
----- Insert image ----
+<p align="middle">
+  <img src="/images/assembly_middle_base.png" alt="Assembly of the movable middle base" width=400>
+</p>
 
 6. Assembly the movable middle base.
 
----- Insert image ----
+<p align="middle">
+  <img src="/images/assembly_right_base.png" alt="Assembly of the movable right base" width=400>
+</p>
 
 7. Assembly all the bases and shafts accordingly.
 
----- Insert image ----
+
+<p align="middle">
+  <img src="/images/img3.jpg" alt="Complete assembly photo 1" height=200>
+
+  <img src="/images/img4.jpg" alt="Complete assembly photo 2" height=200>
+  
+  <img src="/images/img5.jpg" alt="Complete assembly photo 3" height=200>
+</p>
 
 8. Place the belts and makes sure to tighten them up.
-
-### Troubleshooting
 
 ## Requirements
 ### Software
