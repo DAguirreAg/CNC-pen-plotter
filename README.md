@@ -12,31 +12,12 @@ A multi axes (XY) CNC pen plotter machine.
 ## 1. Introduction
 The following repository holds the code, schematics and hardware needed to build a simple two linear axes plotter controlled with an Arduino and a CNC shield. 
 
-The X axis is controlled by two Nema 17 stepper motors and the Y axis is controlled by another Nema 17 stepper motor.
+The X axis is controlled by **two Nema 17 stepper motors** and the Y axis is controlled by **another Nema 17 stepper motor**.
 
 The commands are sent via the “Universal GCode sender” and the GCode can be generated using any slicer/CAM software (Inkscape, Fusion360,...).
 
 ### 2. Preparation
-### 2.1 Software
-Install the GRBL into your Arduino. Find [here](https://arduinoboardproject.com/en/how-to-install-grbl-on-arduino-uno-with-the-arduino-ide-software/) some useful instructions on how to do this.
-
-* Download and install “Universal Gcode Sender” for sending Gcode commands to the Arduino. You can download this program [here](https://winder.github.io/ugs_website/).
-* Open Universal Gcode Sender and connect to the Arduino.
-* Make sure that the belts are not connected.
-* Test each motor’s rotation direction by sending the G0 X0 or G0 Y0 command. Change the wiring if needed to make the motors work as intended.
-* Load a Gcode file. Make sure that the Gcode won’t make your CNC collide with your borders.
-* Run the Gcode file. 
-
-### 2.2. Electronics
-Before proceeding with the electronics, I really recommend checking that all the components work properly and are correctly setup (pay special attention to A4988 modules, as the need to be tuned before being used).
-
-After ensuring that all the components work properly follow next diagram to setup your electronics. (Don't forget to shortcircuit the X.STEPS/DIR pins)
-
-<p align="middle">
-  <img src="/images/electronic_schematics.jpg" alt="Schematics for electronics assembly" width=500>
-</p>
-
-### 2.3. Hardware
+### 2.1. Hardware
 The assembly process is quite straightforward:
 
 1. Assembly the pulleys and pulley holders (3 in total).
@@ -62,7 +43,6 @@ The assembly process is quite straightforward:
 
 7. Assembly all the bases and shafts accordingly.
 
-
 <p align="middle">
   <img src="/images/img3.jpg" alt="Complete assembly photo 1" height=200>
 
@@ -71,10 +51,46 @@ The assembly process is quite straightforward:
   <img src="/images/img5.jpg" alt="Complete assembly photo 3" height=200>
 </p>
 
-8. Place the belts and makes sure to tighten them up.
+8. Place the belts and make sure to tighten them up.
+9. **Manually move the X and Y bases to check for uneven movements or noises**. Try loosing/tightening the screws and adjusting the different elements to make the movements as smooth as possible.
 
-## Requirements
-### Software
+### 2.2. Electronics
+Before proceeding with the electronics, I really recommend checking that all the components work properly. Pay special attention to **A4988** modules, as they **need to be tuned** before being used. Find a nice tutorial about tuning them [here](https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/).
+
+After ensuring that all the components work properly follow next diagram to setup your electronics. Don't forget to **connect the X.STEPS/DIR pins** so the commands in the A axis are the same as the ones in the X axis (remember that the X direction is controlled by two motors!).
+
+<p align="middle">
+  <img src="/images/electronic_schematics.jpg" alt="Schematics for electronics assembly" width=500>
+</p>
+
+
+### 2.3. Software
+Install the GRBL into your Arduino. Find [here](https://arduinoboardproject.com/en/how-to-install-grbl-on-arduino-uno-with-the-arduino-ide-software/) some useful instructions on how to do this.
+
+* Download and install [Universal Gcode Sender](https://winder.github.io/ugs_website/) for sending Gcode commands to the Arduino.
+* Open Universal Gcode Sender and connect to the Arduino.
+
+## 3. Setting up
+Before drawing anything, we will need to check that everything is working correctly. In order to do that, please follow next steps:
+
+1. Disconnect all the belts.
+2. Test each motor’s rotation direction by sending the G0 X0 or G0 Y0 command. Change the wiring (WITHOUT power!) if needed to make sure the motors work as intended.
+3. Place the belts once more and make sure to tighten them up.
+4. Repeat the 2 step to make sure all the components work properly with the belts installed.
+5. **If microstepping was enabled**, you will need to **adjust the step/mm relation** of each axis. This is a straighforward process, so follow [this](https://diymachining.com/grbl-steps-per-mm/). 
+6. Congratulations!!!! You are ready to start drawing!!!
+
+
+## 4. Drawing
+Now that everything is ready, it is time to have some fun:
+
+1. Generate a Gcode from any software you like (For beginners, you can start with Inkscape).
+2. Open "Universal Gcode Sender" and connect to your arduino.
+3. Open the Gcode you just created.
+4. Press RUN and see the machine do its magic!!!!!
+
+## 5. Requirements
+### 5.1. Software
 You should install/have the following software in order to control your CNC machine:
 
 * [Universal Gcode Sender](https://winder.github.io/ugs_website/)
@@ -84,7 +100,7 @@ You should install/have the following software in order to control your CNC mach
 
 *(Not necessary but recommended)
 
-### Components
+### 5.2. Components
 In order to construct this project, you will need the following components:
 
 * Microcontroller: Arduino UNO
